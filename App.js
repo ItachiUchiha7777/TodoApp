@@ -15,7 +15,7 @@ import {
 } from "react-native";
 
 import Task from "./components/Task";
-import mainstyle from "./components/mainstyle";
+
 
 export default function App() {
   const [task, setTask] = useState("");
