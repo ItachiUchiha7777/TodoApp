@@ -5,7 +5,9 @@ const Task = (props) => {
   return (
     <View style={styles.item}>
       <View style={styles.itemLeft}>
-        <TouchableOpacity style={styles.square}></TouchableOpacity>
+      <TouchableOpacity style={styles.square} onPress={props.onPressSquare}>
+       
+        </TouchableOpacity>
         <Text style={styles.itemText}>{props.text}</Text>
       </View>
       <View style={styles.circular}></View>
@@ -26,8 +28,12 @@ const styles = StyleSheet.create({
   itemLeft: {
     flexDirection: 'row',
     alignItems: 'center',
+    flex:1,
+
+    flexWrap:'nowrap',
   },
   square: {
+   
     width: 24,
     height: 24,
     backgroundColor: '#55BCF6',
@@ -36,8 +42,9 @@ const styles = StyleSheet.create({
     marginRight: 15,
   },
   itemText: {
-    maxHeight: '80%',
-    fontSize: 18,
+    flex:1,
+    fontSize: 15,
+    flexWrap:'wrap',
   },
   circular: {
     width: 12,
@@ -45,6 +52,7 @@ const styles = StyleSheet.create({
     borderColor: '#55BCF6',
     borderRadius: 5,
     borderWidth: 2,
+    
   },
 });
 

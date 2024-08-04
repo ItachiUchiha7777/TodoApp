@@ -1,5 +1,3 @@
-
-
 # Todo App
 
 A simple Todo app built with React Native. This app allows users to manage their tasks efficiently and is designed to work as a hybrid app for both iOS and Android platforms.
@@ -22,21 +20,18 @@ A simple Todo app built with React Native. This app allows users to manage their
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/ItachiUchiha7777/Your-Repository-Name.git
+   git clone https://github.com/ItachiUchiha7777/TodoApp.git
    ```
-
 2. Navigate to the project directory:
 
    ```bash
    cd Your-Repository-Name
    ```
-
 3. Install dependencies:
 
    ```bash
    npm install
    ```
-
 4. For Android development:
 
    - Ensure you have Android Studio installed and configured.
@@ -46,7 +41,6 @@ A simple Todo app built with React Native. This app allows users to manage their
      ```bash
      npx react-native run-android
      ```
-
 5. For iOS development (Mac only):
 
    - Ensure you have Xcode installed.
@@ -60,7 +54,7 @@ A simple Todo app built with React Native. This app allows users to manage their
 
 You can download the Android APK from the following link:
 
-[Download APK](https://www.upload-apk.com/JzpHpa7TYF1FGQI)
+[Download APK](https://expo.dev/artifacts/eas/mh1NSbt3Kz9orv8Ay89ZmD.apk)
 
 ## Usage
 
@@ -69,4 +63,3 @@ After installation, you can start adding, editing, and deleting tasks. The app u
 ## Contributing
 
 Feel free to open issues or submit pull requests if you find any bugs or have suggestions for improvements.
-

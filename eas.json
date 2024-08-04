@@ -12,7 +12,10 @@
     },
     "production": {
       "android": {
-        "buildType": "apk"  // Specify APK build type
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": false
       }
     }
   },

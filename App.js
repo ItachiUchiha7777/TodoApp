@@ -16,17 +16,16 @@ import {
 
 import Task from "./components/Task";
 
-
 export default function App() {
   const [task, setTask] = useState("");
   const [taskItems, setTaskItems] = useState([]);
+
   const openURL = (url) => {
-    Linking.openURL(url).catch((err) => console.error("Failed to open URL:", err));
+    Linking.openURL(url).catch((err) =>
+      console.error("Failed to open URL:", err)
+    );
   };
-  
 
-
-  // Load tasks from AsyncStorage when the app starts
   useEffect(() => {
     const loadTodos = async () => {
       try {
@@ -41,7 +40,6 @@ export default function App() {
     loadTodos();
   }, []);
 
-  // Save tasks in AsyncStorage whenever the taskItems array changes
   useEffect(() => {
     const saveTodos = async () => {
       try {
@@ -56,8 +54,7 @@ export default function App() {
   const handleAddTask = () => {
     if (task.trim()) {
       setTaskItems([...taskItems, task]);
-      setTask(""); // Clear the text input field
-      Keyboard.dismiss(); // Hide the keyboard
+      setTask("");
     }
   };
 
@@ -69,32 +66,33 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-
-      
-      {/* Today's tasks */}
       <View style={styles.tasksWrapper}>
         <Text style={styles.sectionTitle}>Today's Tasks</Text>
-        <Text  style={styles.link} onPress={() => openURL('https://rohit-gusain-iportfolio.netlify.app/')}>
+        <Text
+          style={styles.link}
+          onPress={() =>
+            openURL("https://rohit-gusain-iportfolio.netlify.app/")
+          }
+        >
           Meet the developer
         </Text>
-        
+
         <ScrollView
           contentContainerStyle={styles.items}
           style={styles.itemsContainer}
         >
-          {/* This is where the tasks go */}
           {taskItems.map((item, index) => (
-            <TouchableOpacity
-              key={index}
-              onPress={() => completeTask(index)} // Pass index to remove the correct task
-            >
-              <Task text={item} />
+            <TouchableOpacity key={index} onPress={() => completeTask(index)}>
+              <Task
+                style={styles.item}
+                text={item}
+                onPressSquare={() => completeTask(index)} // Pass the function to handle square button press
+              />
             </TouchableOpacity>
           ))}
         </ScrollView>
       </View>
 
-      {/* Write a task */}
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.writeTaskWrapper}
@@ -105,10 +103,7 @@ export default function App() {
           value={task}
           onChangeText={(text) => setTask(text)}
         />
-        <TouchableOpacity
-          onPress={() => handleAddTask()}
-          style={styles.addWrapper}
-        >
+        <TouchableOpacity onPress={handleAddTask} style={styles.addWrapper}>
           <Text style={styles.addText}>+</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
@@ -121,17 +116,15 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E8EAED',
+    backgroundColor: "#E8EAED",
   },
   link: {
-    textAlign: 'center',
-    marginBottom:20,
-    color: 'blue',
-    textDecorationLine: 'underline',
+    textAlign: "center",
+    marginBottom: 20,
+    color: "blue",
+    textDecorationLine: "underline",
   },
-
   tasksWrapper: {
-    
     flex: 1,
     paddingTop: 80,
     paddingHorizontal: 20,
@@ -139,25 +132,26 @@ const styles = StyleSheet.create({
   sectionTitle: {
     textAlign: "center",
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 20,
   },
   itemsContainer: {
     flex: 1,
   },
   items: {
-    paddingBottom: 80, // Add padding at the bottom to ensure scrolling space
+    paddingBottom: 80,
   },
   writeTaskWrapper: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 0,
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    backgroundColor: '#E8EAED', // Match background color to avoid visual glitches
+    width: "100%",
+    paddingLeft: 10,
+    paddingRight: 10,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 30,
+    backgroundColor: "#E8EAED",
   },
   input: {
     flex: 1,
@@ -169,16 +163,18 @@ const styles = StyleSheet.create({
     borderRadius: 60,
   },
   addWrapper: {
-    width: 55,
-    height: 55,
+    width: 60,
+    height: 60,
     borderRadius: 30,
     backgroundColor: "#55BCF6",
     justifyContent: "center",
     alignItems: "center",
+    borderColor: "#c0c0c0",
+    borderWidth: 1,
   },
   addText: {
-    color: '#FFF',
+    color: "#FFF",
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });
