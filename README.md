@@ -25,7 +25,7 @@ A simple Todo app built with React Native. This app allows users to manage their
 2. Navigate to the project directory:
 
    ```bash
-   cd Your-Repository-Name
+   cd TodoApp
    ```
 3. Install dependencies:
 
